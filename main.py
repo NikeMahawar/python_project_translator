@@ -47,8 +47,12 @@ def translate_website(url, target_language):
     # Get the translated HTML content
     translated_html = soup.prettify()
 
-    # Open the translated content in a new browser tab
-    webbrowser.open_new_tab(f"data:text/html;charset=utf-8,{translated_html}")
+    # Write the translated content to a file
+    with open('translated_website.html', 'w', encoding='utf-8') as f:
+        f.write(translated_html)
+
+    # Open the translated content in the default web browser
+    webbrowser.open('translated_website.html')
 
 # Usage example
 url = input("Enter the URL of the website to translate: ")
